@@ -10,19 +10,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProgramController extends AbstractController
 {
     /**
-     * @Route("/programs/", name="program_index")
+     * @Route("/program/", name="program_index")
      * @return Response
      */
-    public function index(): Response
+    public function index(ProgramRepository $programRepository): Response
     {
-
+        
         return $this->render('program/index.html.twig', [
             'website' => 'Wild Séries',
          ]);
 
     }
     /**
-     * @Route("/programs/show/{id<\d+>}", methods={"GET"}, name="program_show")
+     * @Route("/program/show/{id<\d+>}", methods={"GET"}, name="program_show")
      * @return Response
      */
     public function show(int $id)

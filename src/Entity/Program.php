@@ -20,11 +20,6 @@ class Program
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $program;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $title;
 
     /**
@@ -39,25 +34,13 @@ class Program
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class)
-     * @ORM\JoinColumn(name="category_id", referenced coLomnName="id", nullable=false)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getProgram(): ?string
-    {
-        return $this->program;
-    }
-
-    public function setProgram(string $program): self
-    {
-        $this->program = $program;
-
-        return $this;
     }
 
     public function getTitle(): ?string
