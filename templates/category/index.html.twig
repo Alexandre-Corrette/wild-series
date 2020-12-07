@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% for category in categories %}
+        <div>
+            <h2>
+            {# Lien vers la fiche de la série : #}
+            <a href="{{ path("category_show", { categoryName: category.name }) }}">Catégorie{{ category.name }}</a> </h2>
+            {% else %}
+            Nothing to display
+{% endfor %}
+            
+            
+        </div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello | {{ website }}{% endblock %}
+{% block title %}Hello | {% endblock %}
 
 {% block body %}
 <style>
@@ -10,6 +10,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1> Bienvenue sur {{ website }} </h1>
+    <h1> Bienvenue su  </h1>
+    {% for program in programs %}
+        <div>
+            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <p>{{ program.summary }}</p>
+            {# Lien vers la fiche de la série : #}
+            <a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
 
 {% endblock %}
