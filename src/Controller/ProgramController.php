@@ -6,14 +6,17 @@ use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
- 
 
+ /**
+  * @Route("/programs", name="program_")
+  * @return Response
+  */
 class ProgramController extends AbstractController
-{/**
-     * @Route("/program/", name="index")
-     * @return Response
-     */
-   
+{
+/**
+  * @Route("/", name="index")
+  * @return Response
+  */
     public function index(): Response
     {
         $programs = $this->getDoctrine()
@@ -27,23 +30,23 @@ class ProgramController extends AbstractController
         
     }
     
-    /**
-     * @Route("/program/show/{id<\d+>}", methods={"GET"}, name="program_show")
-     * @return Response
-     */
+/**
+ * @Route("/show/{id<\d+>}", methods={"GET"}, name="show")
+ * @return Response
+ */
     public function show(int $id)
     {
-        $program = $this->getDoctrine()
+        $programs = $this->getDoctrine()
         ->getRepository(Program::class)
         ->findOneBy(['id' => $id]);
 
-    if (!$program) {
+    if (!$programs) {
         throw $this->createNotFoundException(
             'No program with id : '.$id.' found in program\'s table.'
         );
     }
     return $this->render('program/show.html.twig', [
-        'program' => $program,
+        'programs' => $programs,
     ]);
         
     }

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Catgéorie #{{ category.id }}{% endblock %}
+
+{% block body %}
+
+<h1>{{ category.name}}</h1>
+<div class="media">
+  {% for program in programs %}
+  <div class="media-body">
+    <h1 class="mt-0">{{ program.id}} 
+      <a href="{{ path("program_show", { id: program.id }) }}">
+        {{ program.title }}</h1>
+      </a>
+    <p>{{ program.summary }}</p>
+    <p>Catégorie : {{ program.category.name }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+<a href="{{ path('program_index') }}">
+    Retour à la liste des programmes
+</a>
+{% endblock %}
