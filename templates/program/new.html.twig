@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {# initialize html form #}
+    {{ form_start(form) }}
+    {# render form #}
+    {{ form_widget(form) }}
+    {# add a html submit type button #}
+    <input type='submit' value='Add program'>
+    {# end form #}
+    {{ form_end(form) }}
+{% endblock %}
