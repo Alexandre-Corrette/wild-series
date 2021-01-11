@@ -17,13 +17,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryController extends AbstractController
 {
 /**
- * @Route("/", name="index_")
+ * @Route("/", name="index")
  * @return Response
  */
     public function index(): Response
     {
         $categories = $this->getDoctrine()
-             ->getRepository(CategoryType::class)
+             ->getRepository(Category::class)
              ->findAll();
 
         return $this->render('category/index.html.twig',
@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
         //Create the assiociated Form
         $form = $this->createForm(CategoryType::class, $category);
         //Get data from http request
-        $form->handleRequest();
+        $form->handleRequest($request);
         //was the form submitted?
         if ($form->isSubmitted()){
             // Deal with the submitted data
