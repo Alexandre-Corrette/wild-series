@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Season;
-use App\Entity\Program;
 use App\Entity\Episode;
+use App\Entity\Program;
+use App\Form\ProgramFormType;
 use App\Repository\SeasonRepository;
-use App\Repostitory\EpisodeRepository;
 use App\Repository\ProgramRepository;
+use App\Repostitory\EpisodeRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +34,36 @@ class ProgramController extends AbstractController
         
         
     }
+/**
+ *  @Route("/new", name="new")
+ * @return Response
+ */
+public function new(Request $request): Response
+{
+    // Create a new Program
+    $program = new Program();
+    //Create the assiociated Form
+    $form = $this->createForm(ProgramFormType::class, $program);
+    //Get data from http request
+    $form->handleRequest($request);
+    //Was the form submitted ?
+    if ($form->isSubmitted()) {
+        //Deal with the submitted Data
+        //Get the EntityManager
+        $entityManager = $this->getDoctrine()->getManager();
+        //Persist Program Object
+        $entityManager->persist($program);
+        //Flush the persisted object
+        $entityManager->flush();
+        //Finally redirect to program list
+        return $this->redirectToRoute('program_index');
+
+    }
+    // Render the form 
+    return $this->render('program/new.html.twig', [
+        "form" => $form->createView(),
+    ]);
+}
     
 /**
  * @Route("/show/{id}", name="show")
@@ -50,7 +82,7 @@ class ProgramController extends AbstractController
         );
     }
     return $this->render('Program/show.html.twig', [
-        'program' => $program, 'season' => $season,
+        'program' => $program, 'seasons' => $seasons,
     ]);
         
     }
@@ -77,6 +109,7 @@ class ProgramController extends AbstractController
         'program' => $program, 'season' => $season, 'episodes' => $episodes,
     ]);
     }
+
 /**
  * @Route("/{program}/seasons/{season}/episodes/{episode}", name="episode_show")
  * @return Response
