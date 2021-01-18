@@ -1,21 +1,28 @@
 {% extends 'base.html.twig' %}
-
-{% block title %} Program List {% endblock %}
+{% block title %}Série {{ program.id }}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: blue; padding: 2px 6px; }
-    
-</style>
 
+<h1>{{ program.title}}</h1>
 <div class="media">
-  <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+  <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster"
   <div class="media-body">
-    <h1 class="mt-0">{{ program.title }}</h1>
+    <h1 class="mt-0">{{ program.title }} 
+      <a href="{{ path("program_show", { id: program.id }) }}">
+        {{ program.title }}</h1>
+      </a>
     <p>{{ program.summary }}</p>
     <p>Catégorie : {{ program.category.name }}</p>
-  </div>
-</div>
 
+  </div>
+ 
+</div>
+{% for season in seasons %}
+<a href="{{ path("program_season_show", { "program":program.id, "season": season.id }) }}">voir la saison
+      {{ season.number }}
+      </a>
+{% endfor %}
+<a href="{{ path('program_index') }}">
+    Retour à la liste des programmes
+</a>
 {% endblock %}

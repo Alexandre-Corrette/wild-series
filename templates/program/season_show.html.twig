@@ -8,7 +8,7 @@
 <h2>voir l'épisode </h2>
 {% for episode in episodes %}
 <ul>
-<li><a href="#"> Episode {{ episode.number }}</a></li>
+<li><a href="{{ path("program_episode_show", {"program": program.id, "season": season.id, "episode": episode.id}) }}"> Episode {{ episode.number }}</a></li>
 <p>{{ episode.synopsis}}</p>
 </ul>
       
