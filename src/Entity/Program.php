@@ -12,10 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
- * @UniqueEntity(
- *     fields="title",
- *     errorPath="title",
- *     message="Ce titre existe déjà."
+ * @UniqueEntity(fields={"title"},message= "ce titre existe déjà"
  * )
  */
 class Program
@@ -30,6 +27,7 @@ class Program
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
+     * 
      */
     private $title;
 
@@ -37,6 +35,8 @@ class Program
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
      * @Assert\Length(max="255")
+     * @Assert\Regex(pattern="/^.plus belle la vie/",
+     * message="on parle de vraies séries ici")
      */
     private $summary;
 

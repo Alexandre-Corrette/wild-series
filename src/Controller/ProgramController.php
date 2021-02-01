@@ -47,7 +47,7 @@ public function new(Request $request): Response
     //Get data from http request
     $form->handleRequest($request);
     //Was the form submitted ?
-    if ($form->isSubmitted()) {
+    if ($form->isSubmitted() && $form->isValid()) {
         //Deal with the submitted Data
         //Get the EntityManager
         $entityManager = $this->getDoctrine()->getManager();
