@@ -25,9 +25,21 @@ h3 {
 a:hover{
     text-decoration: none;
 }
+.itemContent {
+    color: lightgray;
+}
 .main {
     color: red;
     
+}
+.backButton {
+    background-color: #ffffff;
+    color: red;
+    font-weight: bold;
+    border-radius: 0.5em;
+    margin: 10px;
+    padding: 5px;
+
 }
 .container {
     display: flex;
@@ -81,5 +93,45 @@ p {
     border-radius: 0.5em;
     margin: 10px;
 
+}
+//Show Actor Page 
+.actorName {
+    color: red;
+    margin-left: 10px;
+
+}
+.actorProgramList li{
+    color: lightgray;
+    list-style: none;
+}
+.actorProgramList a{
+    color: lightgray;
+    text-decoration: none;
+}
+.itemActorLife, .itemActorWork {
+    text-align: left;
+    color: lightgray;
+    padding-left: 5px;
+
+}
+.actorProfileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+.actorPortrait {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+}
+.actor.card {
+    background-color: transparent;
+    border: solid 1px lightgray;
+
+
+}
+.actor.container {
+    align-content: center;
 }
 
