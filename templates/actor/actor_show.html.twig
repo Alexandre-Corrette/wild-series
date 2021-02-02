@@ -2,14 +2,25 @@
 {% block title %}Acteur | {{ actors.name }}{% endblock %}
 
 {% block body %}
-    <h1>{{ actors.name }} </h1>
-        <ul>
-            {% for program in actors.programs %} 
-                <li><a href="{{ path("program_show", {"id": program.id}) }}">{{ program.title }} </li>
-            {% else %}
-                <li>Cet acteur ne joue dans aucune série</li>
-            {% endfor %}
-        </ul>
+    <div class="actor container">
+        <div class="actorProfileHeader">
+            <img class="actorPortrait" src="https://picsum.photos/id/237/200">
+            <h1 class="actorName">{{ actors.name }} </h1>
+        </div>
+        <div class="actor card">
+        <h2 class="itemActorLife">Biographie</h2>
+            <p class="itemContent">lLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h3 class="itemActorWork">Filmographie</h3>
+            <ul class="actorProgramList">
+                {% for program in actors.programs %} 
+                    <li><a href="{{ path("program_show", {"id": program.id}) }}">{{ program.title }} </li>
+                {% else %}
+                    <li>Cet acteur ne joue dans aucune série</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+   
 
 
 {% endblock %}

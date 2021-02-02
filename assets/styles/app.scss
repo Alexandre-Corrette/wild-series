@@ -3,3 +3,135 @@ $primary: darken(#430bca, 50%);
 
 
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: black;
+    max-height: 100vh;
+    font-size: 14px;
+    
+}
+h1, h2, h3, h4 {
+    text-align: center;
+}
+h1 {
+    font-size: 3 em;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size:1.5em;
+}
+a:hover{
+    text-decoration: none;
+}
+.itemContent {
+    color: lightgray;
+}
+.main {
+    color: red;
+    
+}
+.backButton {
+    background-color: #ffffff;
+    color: red;
+    font-weight: bold;
+    border-radius: 0.5em;
+    margin: 10px;
+    padding: 5px;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em auto;
+    max-width: 95%;
+    
+    
+}
+p {
+    color: rgb(63, 60, 60);
+    padding: 10px;
+    margin: 0;
+}
+.wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    justify-content: space-between;
+    
+}
+.card {
+    max-width: 300px;
+    margin: 10px;
+}
+.poster.md {
+    max-width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    object-fit: cover;
+    padding: 10px;
+}
+
+//Show Program Page 
+
+.programWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    margin: auto;
+    align-items: center;
+}
+.seasonList {
+    display: flex;
+    justify-content: space-evenly;
+}
+.showSeasonButton {
+    background-color: red;
+    color:#FFFFFF;
+    border-radius: 0.5em;
+    margin: 10px;
+
+}
+//Show Actor Page 
+.actorName {
+    color: red;
+    margin-left: 10px;
+
+}
+.actorProgramList li{
+    color: lightgray;
+    list-style: none;
+}
+.actorProgramList a{
+    color: lightgray;
+    text-decoration: none;
+}
+.itemActorLife, .itemActorWork {
+    text-align: left;
+    color: lightgray;
+    padding-left: 5px;
+
+}
+.actorProfileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+.actorPortrait {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+}
+.actor.card {
+    background-color: transparent;
+    border: solid 1px lightgray;
+
+
+}
+.actor.container {
+    align-content: center;
+}
+
